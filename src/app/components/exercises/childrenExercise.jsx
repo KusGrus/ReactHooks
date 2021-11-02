@@ -1,5 +1,6 @@
 import React from "react";
 import CollapseWrapper from "../common/collapse";
+import NumberedList from "./numberedList";
 const ChildrenExercise = () => {
     return (
         <CollapseWrapper title="Упражнение">
@@ -11,9 +12,11 @@ const ChildrenExercise = () => {
                 <code>React.Children.toArray</code>
             </p>
 
-            <Component />
-            <Component />
-            <Component />
+            <NumberedList>
+                <Component />
+                <Component />
+                <Component />
+            </NumberedList>
         </CollapseWrapper>
     );
 };

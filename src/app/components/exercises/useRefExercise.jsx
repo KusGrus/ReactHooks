@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import CollapseWrapper from "../common/collapse";
 const UseRefExercise = () => {
+    const [blockTitle, setBlockTitle] = useState("Блок");
+    const blockRef = useRef();
+
+    const handleClick = () => {
+        setBlockTitle("text");
+        blockRef.current.style.width = "80px";
+        blockRef.current.style.height = "160px";
+    };
+
     return (
         <CollapseWrapper title="Упражнение">
             <p className="mt-3">
@@ -12,6 +21,7 @@ const UseRefExercise = () => {
                 <li>высота и ширина станут равны 150 и 80 соответственно</li>
             </ul>
             <div
+                ref={blockRef}
                 className="bg-primary d-flex flex-row justify-content-center align-items-center rounded"
                 style={{
                     height: 40,
@@ -19,8 +29,9 @@ const UseRefExercise = () => {
                     color: "white"
                 }}
             >
-                <small>Блок</small>
+                <small>{blockTitle}</small>
             </div>
+            <button className="btn btn-primary mt-4" onClick={handleClick}>Change</button>
         </CollapseWrapper>
     );
 };
